@@ -55,8 +55,8 @@ function openEmojiDrawer() {
     const drawer = document.getElementById('emoji-drawer');
     drawer.classList.add('open');
 
-    // Disable body scroll
-    document.body.classList.add('no-scroll');
+    // Adjust main padding-bottom to accommodate the open drawer
+    document.querySelector('main').style.paddingBottom = '60%';
 
     loadEmojis('smileys');
 }
@@ -66,8 +66,8 @@ function closeEmojiDrawer() {
     const drawer = document.getElementById('emoji-drawer');
     drawer.classList.remove('open');
 
-    // Enable body scroll
-    document.body.classList.remove('no-scroll');
+    // Reset main padding-bottom
+    document.querySelector('main').style.paddingBottom = '70px';
 }
 
 // Load emojis into the emoji grid
