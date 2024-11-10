@@ -11,6 +11,10 @@ body {
     overflow-x: hidden;
 }
 
+body.no-scroll {
+    overflow: hidden; /* Prevent scrolling when emoji drawer is open */
+}
+
 header {
     background-color: #4CAF50;
     color: white;
@@ -146,7 +150,7 @@ header {
     box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
     transform: translateY(100%);
     transition: transform 0.3s ease-in-out;
-    z-index: 999;
+    z-index: 2000; /* Increased z-index to be above all other elements */
 }
 
 .emoji-drawer.open {
@@ -194,6 +198,8 @@ header {
 .drawer-body {
     padding: 10px;
     overflow-y: auto;
+    background-color: #fff; /* Ensure solid background */
+    max-height: calc(60% - 100px); /* Adjust height to prevent overflow */
 }
 
 .emoji-grid {
@@ -225,8 +231,15 @@ header {
 .dragging-clone {
     position: absolute;
     pointer-events: none;
-    z-index: 1000;
+    z-index: 3000; /* Ensure it's above all other elements */
     transform: translate(-50%, -50%);
+}
+
+/* Prevent interaction with underlying content when drawer is open */
+body.no-scroll .timeline,
+body.no-scroll header,
+body.no-scroll .drawer-toggle-button {
+    pointer-events: none;
 }
 
 /* Responsive Styles */
