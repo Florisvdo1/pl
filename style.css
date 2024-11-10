@@ -1,0 +1,240 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+#header-time-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#live-time {
+    font-size: 1.5em;
+}
+
+#time-button {
+    background-color: #ffffff;
+    color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+#time-button:hover {
+    background-color: #e0e0e0;
+}
+
+.drawer-toggle-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 1.5em;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 1000;
+}
+
+.drawer-toggle-button:hover {
+    background-color: #e73370;
+}
+
+/* Timeline and timeslot styles */
+.timeline {
+    padding-top: 80px; /* Space for fixed header */
+    padding-bottom: 100px; /* Space for bottom button */
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between time slots */
+}
+
+.timeslot {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.timeslot-header {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.emoji-placeholders {
+    display: flex;
+    gap: 10px;
+}
+
+.emoji-placeholder {
+    width: 60px;
+    height: 60px;
+    background-color: #f0f0f0;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    position: relative;
+}
+
+.emoji-placeholder.highlight {
+    background-color: #e0e0e0;
+    border-color: #4CAF50;
+}
+
+.note-placeholder {
+    margin-top: 10px;
+}
+
+.note-input {
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+    font-size: 1em;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    resize: none;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.note-input:focus {
+    border-color: #4CAF50;
+}
+
+/* Emoji drawer styles */
+.emoji-drawer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 60%;
+    background-color: #fff;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+}
+
+.emoji-drawer.open {
+    transform: translateY(0);
+}
+
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.close-button {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.drawer-tabs {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+.tab-button:hover {
+    background-color: #e0e0e0;
+}
+
+.tab-button.active {
+    background-color: #fff;
+    border-bottom: 2px solid #4CAF50;
+}
+
+.drawer-body {
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.emoji-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.emoji-item {
+    width: 60px;
+    height: 60px;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    user-select: none;
+}
+
+.emoji-item:active {
+    cursor: grabbing;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Draggable clone style */
+.dragging-clone {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1000;
+    transform: translate(-50%, -50%);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .emoji-placeholder,
+    .emoji-item {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8em;
+    }
+}
