@@ -5,7 +5,6 @@ const emojiData = {
     food: ['🍏','🍎','🍐','🍊','🍋','🍌','🍉','🍇','🍓','🍈','🍒','🍑','🥭','🍍','🥥','🥝','🍅','🍆','🥑','🥦','🥒']
 };
 
-let selectedTimeslot = null;
 let draggedEmoji = null;
 let draggedEmojiClone = null;
 let currentDroppable = null;
@@ -31,10 +30,6 @@ function generateTimeslots() {
         for (let i = 0; i < 4; i++) {
             const emojiPlaceholder = document.createElement('div');
             emojiPlaceholder.classList.add('emoji-placeholder');
-            // Add event listener for dropping emojis
-            emojiPlaceholder.addEventListener('touchstart', (e) => {
-                e.stopPropagation();
-            }, false);
             emojiPlaceholdersDiv.appendChild(emojiPlaceholder);
         }
 
@@ -98,8 +93,7 @@ function handleDragStart(e) {
 
     // Position the clone at the touch point
     const touch = e.touches[0];
-    draggedEmojiClone.style.left = `${touch.clientX}px`;
-    draggedEmojiClone.style.top = `${touch.clientY}px`;
+    updateDraggedEmojiPosition(touch);
 }
 
 // Handle the drag move event
@@ -108,8 +102,7 @@ function handleDragMove(e) {
 
     e.preventDefault();
     const touch = e.touches[0];
-    draggedEmojiClone.style.left = `${touch.clientX}px`;
-    draggedEmojiClone.style.top = `${touch.clientY}px`;
+    updateDraggedEmojiPosition(touch);
 
     // Get the element under the touch point
     const elementBelow = document.elementFromPoint(touch.clientX, touch.clientY);
@@ -145,6 +138,17 @@ function handleDragEnd(e) {
     currentDroppable = null;
 }
 
+// Update the position of the dragged emoji clone
+function updateDraggedEmojiPosition(touch) {
+    // Adjust for scroll position
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Set the position of the clone
+    draggedEmojiClone.style.left = `${touch.clientX + scrollLeft}px`;
+    draggedEmojiClone.style.top = `${touch.clientY + scrollTop}px`;
+}
+
 // Initialize the app
 function init() {
     generateTimeslots();
@@ -164,6 +168,17 @@ function init() {
             loadEmojis(category);
         });
     });
+
+    // Update live time in the header
+    updateLiveTime();
+    setInterval(updateLiveTime, 1000);
+}
+
+// Function to update the live time in the header
+function updateLiveTime() {
+    const liveTimeElement = document.getElementById('live-time');
+    const now = new Date();
+    liveTimeElement.textContent = now.toLocaleTimeString();
 }
 
 init();
