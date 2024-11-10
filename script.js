@@ -50,26 +50,6 @@ function generateTimeslots() {
     }
 }
 
-// Open the emoji drawer
-function openEmojiDrawer() {
-    const drawer = document.getElementById('emoji-drawer');
-    drawer.classList.add('open');
-
-    // Adjust main padding-bottom to accommodate the open drawer
-    document.querySelector('main').style.paddingBottom = '60%';
-
-    loadEmojis('smileys');
-}
-
-// Close the emoji drawer
-function closeEmojiDrawer() {
-    const drawer = document.getElementById('emoji-drawer');
-    drawer.classList.remove('open');
-
-    // Reset main padding-bottom
-    document.querySelector('main').style.paddingBottom = '70px';
-}
-
 // Load emojis into the emoji grid
 function loadEmojis(category) {
     const emojiGrid = document.getElementById('emoji-grid');
@@ -161,8 +141,10 @@ function updateDraggedEmojiPosition(touch) {
 // Initialize the app
 function init() {
     generateTimeslots();
-    document.getElementById('open-drawer-button').addEventListener('click', openEmojiDrawer);
-    document.getElementById('close-drawer').addEventListener('click', closeEmojiDrawer);
+
+    // Remove the drawer toggle button functionality since the deck is always visible
+    // Load default emoji category
+    loadEmojis('smileys');
 
     // Tab buttons for changing emoji categories
     const tabButtons = document.querySelectorAll('.tab-button');
