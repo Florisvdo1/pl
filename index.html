@@ -17,27 +17,24 @@
     </header>
 
     <main>
-        <div id="emoji-drawer" class="emoji-drawer">
-            <div class="drawer-header">
+        <div class="timeline" id="timeline">
+            <!-- Timeslots will be generated here -->
+        </div>
+
+        <div id="emoji-deck" class="emoji-deck">
+            <div class="deck-header">
                 <h2>Select Emoji</h2>
-                <span id="close-drawer" class="close-button">&times;</span>
             </div>
-            <div class="drawer-tabs">
+            <div class="deck-tabs">
                 <button class="tab-button active" data-category="smileys">Smileys</button>
                 <button class="tab-button" data-category="activities">Activities</button>
                 <button class="tab-button" data-category="food">Food</button>
             </div>
-            <div class="drawer-body">
+            <div class="deck-body">
                 <div id="emoji-grid" class="emoji-grid">
                     <!-- Emojis will be dynamically generated here -->
                 </div>
             </div>
-        </div>
-
-        <button id="open-drawer-button" class="drawer-toggle-button">😊</button>
-
-        <div class="timeline" id="timeline">
-            <!-- Timeslots will be generated here -->
         </div>
     </main>
 
