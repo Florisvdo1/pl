@@ -54,6 +54,10 @@ function generateTimeslots() {
 function openEmojiDrawer() {
     const drawer = document.getElementById('emoji-drawer');
     drawer.classList.add('open');
+
+    // Disable body scroll
+    document.body.classList.add('no-scroll');
+
     loadEmojis('smileys');
 }
 
@@ -61,6 +65,9 @@ function openEmojiDrawer() {
 function closeEmojiDrawer() {
     const drawer = document.getElementById('emoji-drawer');
     drawer.classList.remove('open');
+
+    // Enable body scroll
+    document.body.classList.remove('no-scroll');
 }
 
 // Load emojis into the emoji grid
@@ -85,11 +92,11 @@ function loadEmojis(category) {
 // Handle the drag start event
 function handleDragStart(e) {
     e.preventDefault();
+    e.stopPropagation();
     draggedEmoji = e.target;
     draggedEmojiClone = draggedEmoji.cloneNode(true);
     draggedEmojiClone.classList.add('dragging-clone');
     document.body.appendChild(draggedEmojiClone);
-    document.body.style.overflow = 'hidden';
 
     // Position the clone at the touch point
     const touch = e.touches[0];
@@ -101,6 +108,7 @@ function handleDragMove(e) {
     if (!draggedEmojiClone) return;
 
     e.preventDefault();
+    e.stopPropagation();
     const touch = e.touches[0];
     updateDraggedEmojiPosition(touch);
 
@@ -125,9 +133,10 @@ function handleDragMove(e) {
 function handleDragEnd(e) {
     if (!draggedEmojiClone) return;
 
+    e.preventDefault();
+    e.stopPropagation();
     draggedEmojiClone.remove();
     draggedEmojiClone = null;
-    document.body.style.overflow = 'auto';
 
     if (currentDroppable) {
         currentDroppable.textContent = draggedEmoji.textContent;
