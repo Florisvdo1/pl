@@ -11,14 +11,10 @@ body {
     overflow-x: hidden;
 }
 
-body.no-scroll {
-    overflow: hidden; /* Prevent scrolling when emoji drawer is open */
-}
-
 header {
     background-color: #4CAF50;
     color: white;
-    padding: 10px; /* Reduced padding */
+    padding: 10px;
     position: fixed;
     width: 100%;
     top: 0;
@@ -32,7 +28,7 @@ header {
 }
 
 #live-time {
-    font-size: 1.2em; /* Reduced font size */
+    font-size: 1.2em;
 }
 
 #time-button {
@@ -40,8 +36,8 @@ header {
     color: #4CAF50;
     border: none;
     border-radius: 5px;
-    padding: 6px 12px; /* Reduced padding */
-    font-size: 0.9em; /* Reduced font size */
+    padding: 6px 12px;
+    font-size: 0.9em;
     cursor: pointer;
 }
 
@@ -49,126 +45,41 @@ header {
     background-color: #e0e0e0;
 }
 
-.drawer-toggle-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #ff4081;
-    color: white;
-    border: none;
-    width: 50px; /* Reduced size */
-    height: 50px;
-    border-radius: 50%;
-    font-size: 1.2em; /* Reduced font size */
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    transition: background-color 0.3s, transform 0.3s;
-    z-index: 1000;
+/* Adjusted main content to account for the emoji drawer */
+main {
+    padding-top: 70px; /* Space for fixed header */
+    padding-bottom: 70px; /* Space for fixed footer (emoji drawer when open) */
+    transition: padding-bottom 0.3s ease-in-out;
 }
 
-.drawer-toggle-button:hover {
-    background-color: #e73370;
-}
-
-/* Timeline and timeslot styles */
-.timeline {
-    padding-top: 70px; /* Reduced space for fixed header */
-    padding-bottom: 80px; /* Reduced space for bottom button */
-    padding-left: 15px;
-    padding-right: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Reduced space between time slots */
-}
-
-.timeslot {
-    background-color: #ffffff;
-    border-radius: 6px; /* Reduced border radius */
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Slightly lighter shadow */
-    padding: 10px; /* Reduced padding */
-    display: flex;
-    flex-direction: column;
-}
-
-.timeslot-header {
-    font-size: 1em; /* Reduced font size */
-    margin-bottom: 8px; /* Reduced margin */
-}
-
-.emoji-placeholders {
-    display: flex;
-    gap: 8px; /* Reduced gap */
-}
-
-.emoji-placeholder {
-    width: 50px; /* Reduced size */
-    height: 50px;
-    background-color: #f0f0f0;
-    border: 2px dashed #ccc;
-    border-radius: 8px; /* Reduced border radius */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5em; /* Reduced font size */
-    cursor: pointer;
-    transition: background-color 0.3s, border-color 0.3s;
-    position: relative;
-}
-
-.emoji-placeholder.highlight {
-    background-color: #e0e0e0;
-    border-color: #4CAF50;
-}
-
-.note-placeholder {
-    margin-top: 8px; /* Reduced margin */
-}
-
-.note-input {
-    width: 100%;
-    height: 50px; /* Reduced height */
-    padding: 8px; /* Reduced padding */
-    font-size: 0.9em; /* Reduced font size */
-    border: 2px solid #ccc;
-    border-radius: 6px; /* Reduced border radius */
-    resize: none;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-.note-input:focus {
-    border-color: #4CAF50;
-}
-
-/* Emoji drawer styles */
 .emoji-drawer {
     position: fixed;
-    bottom: 0;
     left: 0;
+    bottom: 0;
     width: 100%;
-    max-height: 60%;
+    height: 0; /* Start with zero height */
     background-color: #fff;
+    overflow: hidden; /* Hide content when closed */
     box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-    transform: translateY(100%);
-    transition: transform 0.3s ease-in-out;
-    z-index: 2000; /* Increased z-index to be above all other elements */
+    transition: height 0.3s ease-in-out;
+    z-index: 2000;
 }
 
 .emoji-drawer.open {
-    transform: translateY(0);
+    height: 60%; /* Expand to 60% of viewport height when open */
 }
 
 .drawer-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px; /* Reduced padding */
+    padding: 10px;
     background-color: #4CAF50;
     color: white;
 }
 
 .close-button {
-    font-size: 1.2em; /* Reduced font size */
+    font-size: 1.2em;
     cursor: pointer;
 }
 
@@ -179,10 +90,10 @@ header {
 
 .tab-button {
     flex: 1;
-    padding: 8px; /* Reduced padding */
+    padding: 8px;
     background-color: #f1f1f1;
     border: none;
-    font-size: 0.9em; /* Reduced font size */
+    font-size: 0.9em;
     cursor: pointer;
     outline: none;
     transition: background-color 0.3s;
@@ -198,22 +109,108 @@ header {
 }
 
 .drawer-body {
-    padding: 8px; /* Reduced padding */
+    padding: 8px;
     overflow-y: auto;
-    background-color: #fff; /* Ensure solid background */
-    max-height: calc(60% - 80px); /* Adjusted for reduced header and tabs */
+    height: calc(100% - 90px); /* Adjust height based on drawer header and tabs */
+}
+
+.drawer-toggle-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: background-color 0.3s, transform 0.3s;
+    z-index: 1000;
+}
+
+.drawer-toggle-button:hover {
+    background-color: #e73370;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.timeslot {
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    padding: 10px;
+    margin: 0 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.timeslot-header {
+    font-size: 1em;
+    margin-bottom: 8px;
+}
+
+.emoji-placeholders {
+    display: flex;
+    gap: 8px;
+}
+
+.emoji-placeholder {
+    width: 50px;
+    height: 50px;
+    background-color: #f0f0f0;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    position: relative;
+}
+
+.emoji-placeholder.highlight {
+    background-color: #e0e0e0;
+    border-color: #4CAF50;
+}
+
+.note-placeholder {
+    margin-top: 8px;
+}
+
+.note-input {
+    width: 100%;
+    height: 50px;
+    padding: 8px;
+    font-size: 0.9em;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    resize: none;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.note-input:focus {
+    border-color: #4CAF50;
 }
 
 .emoji-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px; /* Reduced gap */
+    gap: 8px;
 }
 
 .emoji-item {
-    width: 50px; /* Reduced size */
+    width: 50px;
     height: 50px;
-    font-size: 1.5em; /* Reduced font size */
+    font-size: 1.5em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -233,20 +230,13 @@ header {
 .dragging-clone {
     position: absolute;
     pointer-events: none;
-    z-index: 3000; /* Ensure it's above all other elements */
+    z-index: 3000;
     transform: translate(-50%, -50%);
-}
-
-/* Prevent interaction with underlying content when drawer is open */
-body.no-scroll .timeline,
-body.no-scroll header,
-body.no-scroll .drawer-toggle-button {
-    pointer-events: none;
 }
 
 /* Responsive Styles */
 @media (max-width: 480px) {
-    /* For smaller screens like iPhone 15 Pro */
+    /* Adjustments for smaller screens */
     header {
         padding: 8px;
     }
@@ -261,11 +251,6 @@ body.no-scroll .drawer-toggle-button {
         width: 45px;
         height: 45px;
         font-size: 1em;
-    }
-    .timeline {
-        padding-top: 65px;
-        padding-bottom: 75px;
-        gap: 8px;
     }
     .timeslot {
         padding: 8px;
@@ -294,7 +279,7 @@ body.no-scroll .drawer-toggle-button {
     }
     .drawer-body {
         padding: 6px;
-        max-height: calc(60% - 70px);
+        height: calc(100% - 80px);
     }
     .emoji-item {
         width: 45px;
