@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <!-- Link to the CSS file -->
   <link rel="stylesheet" href="style.css">
-  <!-- Include Quicksand Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Include Nunito Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
   <!-- Link to Manifest -->
   <link rel="manifest" href="manifest.json">
   <!-- Favicon -->
@@ -23,10 +23,20 @@
   <!-- Background Container for Cloud Animation -->
   <div class="background-container">
     <!-- Cloud Rows -->
-    <div class="cloud-row">
-      <img src="images/cloud.svg" alt="Wolk" class="cloud cloud-1">
-      <img src="images/cloud.svg" alt="Wolk" class="cloud cloud-2">
-      <img src="images/cloud.svg" alt="Wolk" class="cloud cloud-3">
+    <div class="cloud-row row-1">
+      <img src="images/cloud-big.svg" alt="Grote Wolk" class="cloud big-cloud">
+      <img src="images/cloud-small.svg" alt="Kleine Wolk" class="cloud small-cloud">
+      <img src="images/cloud-medium.svg" alt="Middelgrote Wolk" class="cloud medium-cloud">
+    </div>
+    <div class="cloud-row row-2">
+      <img src="images/cloud-big.svg" alt="Grote Wolk" class="cloud big-cloud">
+      <img src="images/cloud-small.svg" alt="Kleine Wolk" class="cloud small-cloud">
+      <img src="images/cloud-medium.svg" alt="Middelgrote Wolk" class="cloud medium-cloud">
+    </div>
+    <div class="cloud-row row-3">
+      <img src="images/cloud-big.svg" alt="Grote Wolk" class="cloud big-cloud">
+      <img src="images/cloud-small.svg" alt="Kleine Wolk" class="cloud small-cloud">
+      <img src="images/cloud-medium.svg" alt="Middelgrote Wolk" class="cloud medium-cloud">
     </div>
   </div>
 
@@ -36,6 +46,13 @@
       <!-- Left Side: Live Time -->
       <div class="header-left">
         <span id="live-time">--:--:--</span>
+      </div>
+      <!-- Center Left: Huiswerk Button -->
+      <div class="header-center-left">
+        <button class="huiswerk-button" aria-label="Huiswerk Button">
+          <span class="huiswerk-plus">+</span>
+          <span class="huiswerk-text">huiswerk af?</span>
+        </button>
       </div>
       <!-- Center: Logo -->
       <div class="header-center">
@@ -55,55 +72,17 @@
 
   <!-- Main Content -->
   <main>
-    <!-- Sectors Container -->
-    <div class="sectors-container">
-      <!-- Ochtend Sector -->
-      <div class="sector" id="ochtend-sector">
-        <div class="sector-header">
-          <h2>Ochtend</h2>
-        </div>
-        <div class="placeholders" id="ochtend-placeholders">
-          <div class="placeholder-container">
-            <div class="emoji-placeholder" data-time="ochtend" data-empty="true"></div>
-            <button class="add-placeholder-button" aria-label="Voeg placeholder toe"></button>
-          </div>
+    <!-- Main Activity Container -->
+    <div class="sector" id="main-sector">
+      <div class="sector-header">
+        <h2>Wat wil je doen? Vandaag!</h2>
+      </div>
+      <div class="placeholders" id="main-placeholders">
+        <div class="placeholder-container">
+          <div class="emoji-placeholder" data-empty="true"></div>
+          <button class="add-placeholder-button" aria-label="Voeg placeholder toe"></button>
         </div>
       </div>
-
-      <!-- Middag Sector -->
-      <div class="sector" id="middag-sector">
-        <div class="sector-header">
-          <h2>Middag</h2>
-        </div>
-        <div class="placeholders" id="middag-placeholders">
-          <div class="placeholder-container">
-            <div class="emoji-placeholder" data-time="middag" data-empty="true"></div>
-            <button class="add-placeholder-button" aria-label="Voeg placeholder toe"></button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Avond Sector -->
-      <div class="sector" id="avond-sector">
-        <div class="sector-header">
-          <h2>Avond</h2>
-        </div>
-        <div class="placeholders" id="avond-placeholders">
-          <div class="placeholder-container">
-            <div class="emoji-placeholder" data-time="avond" data-empty="true"></div>
-            <button class="add-placeholder-button" aria-label="Voeg placeholder toe"></button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Huiswerk Button Section -->
-    <div class="huiswerk-section">
-      <p>Huiswerk gedaan? Vink 'm af</p>
-      <button class="huiswerk-button" aria-label="Huiswerk Button">
-        <span class="huiswerk-text">Huiswerk</span>
-        <span class="huiswerk-check">✔️</span>
-      </button>
     </div>
 
     <!-- Day Rating System -->
@@ -124,13 +103,9 @@
     <div class="deck-body">
       <!-- Navigation Buttons for Categories -->
       <div class="navigation-buttons">
-        <button id="prev-category" class="nav-button" aria-label="Vorige categorie">
-          <img src="images/left-arrow.svg" alt="Vorige categorie">
-        </button>
-        <span id="category-name">Smileys</span>
-        <button id="next-category" class="nav-button" aria-label="Volgende categorie">
-          <img src="images/right-arrow.svg" alt="Volgende categorie">
-        </button>
+        <button id="prev-category" class="nav-button" aria-label="Vorige categorie">←</button>
+        <span id="category-name">Activiteiten</span>
+        <button id="next-category" class="nav-button" aria-label="Volgende categorie">→</button>
       </div>
       <!-- Emoji Search Bar -->
       <div class="emoji-search-bar">

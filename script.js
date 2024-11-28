@@ -86,24 +86,36 @@ const emojiData = {
     '🇧🇮','🇰🇭','🇨🇲','🇨🇦','🇨🇻','🇰🇾','🇨🇫','🇹🇩','🇨🇱','🇨🇳',
     '🇨🇴','🇰🇲','🇨🇬','🇨🇩','🇨🇷','🇨🇮','🇭🇷','🇨🇺','🇨🇾','🇨🇿',
     '🇩🇰','🇩🇯','🇩🇲','🇩🇴','🇪🇨','🇪🇬','🇪🇷','🇪🇪','🇪🇹','🇫🇯',
-    '🇫🇮','🇫🇷','🇬🇦','🇬🇲','🇬🇪','🇬🇪','🇬🇭','🇬🇮','🇬🇱','🇬🇷',
-    '🇬🇩','🇬🇺','🇬🇹','🇬🇳','🇬🇼','🇬🇾','🇭🇹','🇭🇳','🇭🇰','🇭🇺',
-    '🇮🇸','🇮🇳','🇮🇩','🇮🇷','🇮🇶','🇮🇪','🇮🇱','🇮🇹','🇯🇲','🇯🇵',
-    '🇯🇪','🇯🇴','🇰🇿','🇰🇪','🇰🇮','🇰🇼','🇰🇬','🇱🇦','🇱🇻','🇱🇧',
-    '🇱🇸','🇱🇷','🇱🇾','🇱🇮','🇱🇹','🇱🇺','🇲🇰','🇲🇬','🇲🇼','🇲🇾',
-    '🇲🇻','🇲🇱','🇲🇹','🇲🇭','🇲🇷','🇲🇺','🇲🇽','🇫🇲','🇲🇩','🇲🇨',
-    '🇲🇳','🇲🇪','🇲🇦','🇲🇿','🇲🇲','🇳🇦','🇳🇷','🇳🇵','🇳🇱','🇳🇿',
-    '🇳🇮','🇳🇪','🇳🇬','🇰🇵','🇳🇴','🇴🇲','🇵🇰','🇵🇼','🇵🇦','🇵🇬',
-    '🇵🇾','🇵🇪','🇵🇭','🇵🇱','🇵🇹','🇵🇷','🇶🇦','🇷🇴','🇷🇺','🇷🇼',
-    '🇸🇭','🇸🇰','🇸🇮','🇸🇧','🇸🇴','🇿🇦','🇰🇷','🇸🇸','🇸🇪','🇨🇭',
-    '🇸🇾','🇹🇼','🇹🇯','🇹🇿','🇹🇭','🇹🇱','🇹🇬','🇹🇴','🇹🇹','🇹🇳',
-    '🇹🇷','🇹🇲','🇹🇻','🇺🇬','🇺🇦','🇦🇪','🇺🇾','🇺🇸','🇺🇿','🇻🇺',
-    '🇻🇦','🇻🇪','🇻🇳','🇼🇫','🇼🇸','🇾🇪','🇾🇹','🇿🇲','🇿🇼',
-  ],
+    '🇫🇮','🇫🇷','🇬🇦','🇬🇲','🇬🇪','🇬🇭','🇬🇮','🇬🇱','🇬🇷','🇬🇩',
+    '🇬🇺','🇬🇹','🇬🇳','🇬🇼','🇬🇾','🇭🇹','🇭🇳','🇭🇰','🇭🇺','🇮🇸',
+    '🇮🇳','🇮🇩','🇮🇷','🇮🇶','🇮🇪','🇮🇱','🇮🇹','🇯🇲','🇯🇵','🇯🇪',
+    '🇯🇴','🇰🇿','🇰🇪','🇰🇮','🇰🇼','🇰🇬','🇱🇦','🇱🇻','🇱🇧','🇱🇸',
+    '🇱🇷','🇱🇾','🇱🇮','🇱🇹','🇱🇺','🇲🇰','🇲🇬','🇲🇼','🇲🇾','🇲🇻',
+    '🇲🇱','🇲🇹','🇲🇭','🇲🇷','🇲🇺','🇲🇽','🇫🇲','🇲🇩','🇲🇨','🇲🇳',
+    '🇲🇪','🇲🇦','🇲🇿','🇲🇲','🇳🇦','🇳🇷','🇳🇵','🇳🇱','🇳🇿','🇳🇮',
+    '🇳🇪','🇳🇬','🇰🇵','🇳🇴','🇴🇲','🇵🇰','🇵🇼','🇵🇦','🇵🇬','🇵🇾',
+    '🇵🇪','🇵🇭','🇵🇱','🇵🇹','🇵🇷','🇶🇦','🇷🇴','🇷🇺','🇷🇼','🇸🇭',
+    '🇸🇰','🇸🇮','🇸🇧','🇸🇴','🇿🇦','🇰🇷','🇸🇸','🇸🇪','🇨🇭','🇸🇾',
+    '🇹🇼','🇹🇯','🇹🇿','🇹🇭','🇹🇱','🇹🇬','🇹🇴','🇹🇹','🇹🇳','🇹🇷',
+    '🇹🇲','🇹🇻','🇺🇬','🇺🇦','🇦🇪','🇺🇾','🇺🇸','🇺🇿','🇻🇺','🇻🇦',
+    '🇻🇪','🇻🇳','🇼🇫','🇼🇸','🇾🇪','🇾🇹','🇿🇲','🇿🇼',
+  ]
 };
 
+// Convert emojiData into the structure used in the app
+const emojiDataStructured = {};
+for (const [category, emojis] of Object.entries(emojiData)) {
+  emojiDataStructured[category] = emojis.map(char => ({
+    char,
+    name: '' // You can add names if needed
+  }));
+}
+
+// Use emojiDataStructured in the app
+const emojiDataFinal = emojiDataStructured;
+
 // List of category names
-let categories = Object.keys(emojiData);
+let categories = Object.keys(emojiDataFinal);
 let currentCategoryIndex = 0;
 
 // Variables for drag-and-drop functionality
@@ -123,9 +135,6 @@ function init() {
 
     // Initialize placeholders
     initializePlaceholders();
-
-    // Initialize event listeners
-    addGlobalEventListeners();
   } catch (error) {
     logError('init', 'Failed to initialize the application.', { error });
   }
@@ -144,33 +153,23 @@ function initializePlaceholders() {
 
 // Function to handle adding a new placeholder
 function handleAddPlaceholder() {
-  const sector = this.closest('.sector');
-  const placeholdersContainer = sector.querySelector('.placeholders');
-  const time = this.previousElementSibling.getAttribute('data-time');
-  const currentPlaceholders = placeholdersContainer.querySelectorAll('.placeholder-container').length;
+  const placeholdersContainer = document.getElementById('main-placeholders');
+  const currentPlaceholders = placeholdersContainer.querySelectorAll('.emoji-placeholder').length;
 
   if (currentPlaceholders < 5) {
     // Create new placeholder
-    const newPlaceholderContainer = document.createElement('div');
-    newPlaceholderContainer.classList.add('placeholder-container');
-
     const placeholder = document.createElement('div');
     placeholder.classList.add('emoji-placeholder');
-    placeholder.setAttribute('data-time', time);
     placeholder.setAttribute('data-empty', 'true');
     makePlaceholderDroppable(placeholder);
 
-    const addButton = this.cloneNode(true);
-    addButton.addEventListener('click', handleAddPlaceholder);
+    // Insert the new placeholder before the "+" button
+    placeholdersContainer.insertBefore(placeholder, this);
 
-    newPlaceholderContainer.appendChild(placeholder);
-    newPlaceholderContainer.appendChild(addButton);
-    placeholdersContainer.appendChild(newPlaceholderContainer);
-
-    // Remove "+" button from the previous container
-    this.remove();
+    // Adjust spacing
+    placeholdersContainer.style.justifyContent = 'center';
   } else {
-    alert('Maximum aantal placeholders bereikt voor deze sectie.');
+    alert('Maximum aantal placeholders bereikt.');
   }
 }
 
@@ -249,11 +248,11 @@ function loadEmojis(category) {
   try {
     const emojiGrid = document.getElementById('emoji-grid');
     emojiGrid.innerHTML = ''; // Clear existing emojis
-    const emojis = emojiData[category];
+    const emojis = emojiDataFinal[category];
 
     // Create and append emoji items
-    emojis.forEach(emojiChar => {
-      const emojiItem = createEmojiItem(emojiChar);
+    emojis.forEach(emojiObj => {
+      const emojiItem = createEmojiItem(emojiObj.char, emojiObj.name);
       emojiGrid.appendChild(emojiItem);
     });
 
@@ -266,11 +265,11 @@ function loadEmojis(category) {
 }
 
 // Function to create an emoji item
-function createEmojiItem(emojiChar) {
+function createEmojiItem(emojiChar, emojiName) {
   const emojiItem = document.createElement('div');
   emojiItem.classList.add('emoji-item');
   emojiItem.textContent = emojiChar;
-  emojiItem.dataset.name = emojiChar; // For simplicity, use the emoji character
+  emojiItem.dataset.name = (emojiName || '').toLowerCase();
 
   // Make the emoji draggable
   emojiItem.setAttribute('draggable', 'true');
@@ -359,8 +358,8 @@ function handleTouchEndEmoji(e) {
 
 // Update position of dragged emoji clone
 function updateDraggedEmojiPosition(touch) {
-  draggedEmojiClone.style.left = `${touch.clientX - 25}px`;
-  draggedEmojiClone.style.top = `${touch.clientY - 25}px`;
+  draggedEmojiClone.style.left = `${touch.clientX - 20}px`;
+  draggedEmojiClone.style.top = `${touch.clientY - 20}px`;
 }
 
 // Touch Event Handlers for Placeholders (Mobile)
@@ -477,7 +476,7 @@ emojiSearchInput.addEventListener('input', function() {
 function filterEmojis(searchTerm) {
   const emojis = document.querySelectorAll('.emoji-item');
   emojis.forEach(emoji => {
-    if (emoji.textContent.includes(searchTerm)) {
+    if (emoji.dataset.name.includes(searchTerm)) {
       emoji.style.display = 'flex';
     } else {
       emoji.style.display = 'none';
@@ -485,11 +484,19 @@ function filterEmojis(searchTerm) {
   });
 }
 
-// Huiswerk Button Toggle Functionality
+// Huiswerk Button Toggle Functionality (Updated)
 const huiswerkButton = document.querySelector('.huiswerk-button');
 huiswerkButton.addEventListener('click', () => {
   try {
     huiswerkButton.classList.toggle('active');
+
+    // Toggle the "+" sign to a checkmark when active
+    const huiswerkPlus = huiswerkButton.querySelector('.huiswerk-plus');
+    if (huiswerkButton.classList.contains('active')) {
+      huiswerkPlus.textContent = '✔️';
+    } else {
+      huiswerkPlus.textContent = '+';
+    }
 
     // Haptic feedback
     if (navigator.vibrate) {
@@ -523,6 +530,7 @@ document.getElementById('reset-button').addEventListener('click', () => {
 
     // Reset Huiswerk button
     huiswerkButton.classList.remove('active');
+    huiswerkButton.querySelector('.huiswerk-plus').textContent = '+';
 
     // Reset day rating
     ratingButtons.forEach(button => {

@@ -1,5 +1,5 @@
-/* Import the Quicksand font */
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+/* Import the Nunito font */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
 
 /* Reset and Base Styles */
 * {
@@ -10,7 +10,7 @@
 
 /* Body Styles */
 body {
-  font-family: 'Quicksand', Arial, sans-serif;
+  font-family: 'Nunito', Arial, sans-serif;
   overflow: hidden;
   background-color: #87CEEB;
   position: relative;
@@ -43,6 +43,7 @@ header {
 }
 
 .header-left,
+.header-center-left,
 .header-center,
 .header-right {
   display: flex;
@@ -50,11 +51,9 @@ header {
 }
 
 .header-left,
+.header-center-left,
+.header-center,
 .header-right {
-  flex: 1;
-}
-
-.header-center {
   flex: 1;
   justify-content: center;
 }
@@ -92,23 +91,42 @@ header {
   margin-left: 5px;
 }
 
+/* Huiswerk Button in Header */
+.huiswerk-button {
+  background-color: #2196F3; /* Blue color */
+  color: #FFFFFF;
+  border: 2px dashed #0D47A1; /* Darker blue stroke */
+  border-radius: 15px;
+  width: 80px;
+  height: 80px;
+  font-size: 1em;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.huiswerk-plus {
+  font-size: 2em;
+  line-height: 1;
+}
+
+.huiswerk-text {
+  font-size: 0.8em;
+  margin-top: 4px;
+}
+
 /* Main Content Styling */
 main {
-  padding-top: 80px;
+  padding-top: 100px;
   padding-bottom: 10px;
   overflow: hidden;
 }
 
-.sectors-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  padding: 0 15px;
-}
-
 /* Sector Styles */
-.sector {
+#main-sector {
   background-color: #ffffff;
   border: 2px solid #cccccc;
   border-radius: 15px;
@@ -116,26 +134,28 @@ main {
   text-align: center;
   width: 100%;
   max-width: 600px;
+  margin: 0 auto;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .sector-header h2 {
-  font-size: 1.2em;
+  font-size: 1.5em;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
+/* Placeholders */
 .placeholders {
   display: flex;
   flex-direction: row;
   align-items: center;
   overflow-x: auto;
-  gap: 15px;
+  gap: 17px; /* Increased by 2px */
 }
 
 .placeholder-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 }
 
@@ -165,56 +185,22 @@ main {
   border: 2px dashed #4CAF50;
   border-radius: 15px;
   width: 80px;
-  height: 35px;
-  font-size: 1.5em;
+  height: 80px;
+  font-size: 2em;
   cursor: pointer;
-  margin-top: 5px;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .add-placeholder-button::before {
   content: '+';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  font-size: 2em;
 }
 
 .add-placeholder-button:hover {
   background-color: #e8f5e9;
-}
-
-/* Huiswerk Button Section */
-.huiswerk-section {
-  text-align: center;
-  margin: 20px 0;
-}
-
-.huiswerk-section p {
-  font-size: 1em;
-  margin-bottom: 10px;
-}
-
-.huiswerk-button {
-  background-color: #f44336;
-  color: #FFFFFF;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-size: 1em;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  transition: background-color 0.3s;
-}
-
-.huiswerk-button.active {
-  background-color: #4CAF50;
-}
-
-.huiswerk-button:hover {
-  opacity: 0.9;
 }
 
 /* Day Rating System */
@@ -268,7 +254,6 @@ main {
   bottom: 0;
   z-index: 900;
   box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-  height: 280px; /* Adjusted height to match the provided link */
 }
 
 .deck-body {
@@ -290,7 +275,7 @@ main {
   border: 2px solid #cccccc;
   border-radius: 10px;
   font-size: 1em;
-  font-family: 'Quicksand', Arial, sans-serif;
+  font-family: 'Nunito', Arial, sans-serif;
   color: #000;
   background-color: #fff;
 }
@@ -302,7 +287,7 @@ main {
   gap: 10px;
   justify-content: center;
   width: 100%;
-  max-height: 200px; /* Adjusted to fit within the deck */
+  max-height: 200px;
   overflow-y: auto;
   padding: 10px 0;
 }
@@ -345,17 +330,13 @@ main {
 
 .nav-button {
   background-color: #ffffff;
-  border: none;
+  border: 2px solid #cccccc;
+  font-size: 1.5em;
   cursor: pointer;
-  width: 40px;
-  height: 40px;
-  border-radius: 5px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
   transition: background-color 0.2s, transform 0.2s;
-}
-
-.nav-button img {
-  width: 100%;
-  height: auto;
 }
 
 .nav-button:hover {
@@ -377,10 +358,15 @@ main {
 @media (max-width: 480px) {
   .emoji-placeholder,
   .add-placeholder-button,
-  .rating-button {
+  .rating-button,
+  .huiswerk-button {
     width: 60px;
     height: 60px;
     font-size: 1.5em;
+  }
+
+  .huiswerk-text {
+    font-size: 0.7em;
   }
 
   .emoji-item {
@@ -403,12 +389,10 @@ main {
     font-size: 1em;
   }
 
-  #emoji-deck {
-    height: 250px; /* Adjusted height for smaller screens */
-  }
-
-  .emoji-grid {
-    max-height: 170px;
+  .nav-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.3em;
   }
 }
 
@@ -426,22 +410,48 @@ main {
 .cloud-row {
   display: flex;
   justify-content: space-around;
-  animation: cloudRowAnimation 60s linear infinite;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+}
+
+.row-1 {
+  top: 10%;
+  animation: cloudMoveLeft 60s linear infinite;
+}
+
+.row-2 {
+  top: 30%;
+  animation: cloudMoveRight 80s linear infinite;
+}
+
+.row-3 {
+  top: 50%;
+  animation: cloudMoveLeft 100s linear infinite;
 }
 
 .cloud {
-  width: 100px;
-  height: auto;
-  animation: cloudMove 120s linear infinite;
+  opacity: 0.8;
 }
 
-@keyframes cloudMove {
+.big-cloud {
+  width: 150px;
+}
+
+.medium-cloud {
+  width: 120px;
+}
+
+.small-cloud {
+  width: 90px;
+}
+
+@keyframes cloudMoveLeft {
   0% { transform: translateX(-100%); }
- 100% { transform: translateX(100%); }
+  100% { transform: translateX(100%); }
 }
 
-@keyframes cloudRowAnimation {
-  0% { transform: translateY(0); }
- 50% { transform: translateY(10px); }
-100% { transform: translateY(0); }
+@keyframes cloudMoveRight {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }
