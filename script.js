@@ -98,8 +98,14 @@ const emojiData = {
     '🇸🇰','🇸🇮','🇸🇧','🇸🇴','🇿🇦','🇰🇷','🇸🇸','🇸🇪','🇨🇭','🇸🇾',
     '🇹🇼','🇹🇯','🇹🇿','🇹🇭','🇹🇱','🇹🇬','🇹🇴','🇹🇹','🇹🇳','🇹🇷',
     '🇹🇲','🇹🇻','🇺🇬','🇺🇦','🇦🇪','🇺🇾','🇺🇸','🇺🇿','🇻🇺','🇻🇦',
-    '🇻🇪','🇻🇳','🇼🇫','🇼🇸','🇾🇪','🇾🇹','🇿🇲','🇿🇼',
-  ]
+    '🇻🇪','🇻🇳','🇼🇫','🇼🇸','🇾🇪','🇾🇹','🇿🇲','🇿🇼',  
+	]
+};
+// Include the complete emoji data and all functionalities
+
+// Data for emojis categorized with Dutch names
+const emojiData = {
+  // ... (Include all the categories and emojis as previously provided)
 };
 
 // Convert emojiData into the structure used in the app
@@ -142,9 +148,8 @@ function init() {
 
 // Function to initialize placeholders
 function initializePlaceholders() {
-  document.querySelectorAll('.add-placeholder-button').forEach(button => {
-    button.addEventListener('click', handleAddPlaceholder);
-  });
+  const addPlaceholderButton = document.querySelector('.add-placeholder-button');
+  addPlaceholderButton.addEventListener('click', handleAddPlaceholder);
 
   document.querySelectorAll('.emoji-placeholder').forEach(placeholder => {
     makePlaceholderDroppable(placeholder);
@@ -484,18 +489,18 @@ function filterEmojis(searchTerm) {
   });
 }
 
-// Huiswerk Button Toggle Functionality (Updated)
+// Huiswerk Button Toggle Functionality
 const huiswerkButton = document.querySelector('.huiswerk-button');
 huiswerkButton.addEventListener('click', () => {
   try {
     huiswerkButton.classList.toggle('active');
 
-    // Toggle the "+" sign to a checkmark when active
-    const huiswerkPlus = huiswerkButton.querySelector('.huiswerk-plus');
+    // Toggle the huiswerk icon
+    const huiswerkIcon = huiswerkButton.querySelector('#huiswerk-icon');
     if (huiswerkButton.classList.contains('active')) {
-      huiswerkPlus.textContent = '✔️';
+      huiswerkIcon.src = 'images/huiswerk_2.svg';
     } else {
-      huiswerkPlus.textContent = '+';
+      huiswerkIcon.src = 'images/huiswerk_1.svg';
     }
 
     // Haptic feedback
@@ -530,7 +535,7 @@ document.getElementById('reset-button').addEventListener('click', () => {
 
     // Reset Huiswerk button
     huiswerkButton.classList.remove('active');
-    huiswerkButton.querySelector('.huiswerk-plus').textContent = '+';
+    huiswerkButton.querySelector('#huiswerk-icon').src = 'images/huiswerk_1.svg';
 
     // Reset day rating
     ratingButtons.forEach(button => {

@@ -48,14 +48,8 @@ header {
 .header-right {
   display: flex;
   align-items: center;
-}
-
-.header-left,
-.header-center-left,
-.header-center,
-.header-right {
-  flex: 1;
   justify-content: center;
+  flex: 1;
 }
 
 #live-time {
@@ -93,29 +87,14 @@ header {
 
 /* Huiswerk Button in Header */
 .huiswerk-button {
-  background-color: #2196F3; /* Blue color */
-  color: #FFFFFF;
-  border: 2px dashed #0D47A1; /* Darker blue stroke */
-  border-radius: 15px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.huiswerk-button img {
   width: 80px;
   height: 80px;
-  font-size: 1em;
-  cursor: pointer;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.huiswerk-plus {
-  font-size: 2em;
-  line-height: 1;
-}
-
-.huiswerk-text {
-  font-size: 0.8em;
-  margin-top: 4px;
 }
 
 /* Main Content Styling */
@@ -149,14 +128,9 @@ main {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   overflow-x: auto;
-  gap: 17px; /* Increased by 2px */
-}
-
-.placeholder-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  gap: 2px; /* 2px space between placeholder and + button */
 }
 
 .emoji-placeholder {
@@ -329,19 +303,14 @@ main {
 }
 
 .nav-button {
-  background-color: #ffffff;
-  border: 2px solid #cccccc;
-  font-size: 1.5em;
+  background: none;
+  border: none;
   cursor: pointer;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  transition: background-color 0.2s, transform 0.2s;
 }
 
-.nav-button:hover {
-  background-color: #f0f0f0;
-  transform: scale(1.05);
+.nav-button img {
+  width: 50px;
+  height: 50px;
 }
 
 #category-name {
@@ -349,24 +318,15 @@ main {
   font-weight: bold;
 }
 
-/* Swipe Gesture Styling */
-.emoji-grid.swiping {
-  cursor: grabbing;
-}
-
 /* Responsive Styles */
 @media (max-width: 480px) {
   .emoji-placeholder,
   .add-placeholder-button,
   .rating-button,
-  .huiswerk-button {
+  .huiswerk-button img {
     width: 60px;
     height: 60px;
     font-size: 1.5em;
-  }
-
-  .huiswerk-text {
-    font-size: 0.7em;
   }
 
   .emoji-item {
@@ -389,10 +349,9 @@ main {
     font-size: 1em;
   }
 
-  .nav-button {
+  .nav-button img {
     width: 40px;
     height: 40px;
-    font-size: 1.3em;
   }
 }
 
