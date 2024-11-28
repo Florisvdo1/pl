@@ -1,241 +1,447 @@
-/* Reset and base styles */
+/* Import the Quicksand font */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+/* Reset and Base Styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Body Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f9f9f9;
-    overflow-x: hidden;
+  font-family: 'Quicksand', Arial, sans-serif;
+  overflow: hidden;
+  background-color: #87CEEB;
+  position: relative;
+  min-height: 100vh;
+  user-select: none;
+  touch-action: manipulation;
 }
 
+/* Text Styling */
+body, h1, h2, h3, h4, h5, h6, p, span, button, input {
+  color: #444444; /* Darker color for better contrast */
+}
+
+/* Header Styles */
 header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+  background-color: #ffffff;
+  padding: 10px 15px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ccc;
 }
 
-#header-time-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+#header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left,
+.header-center,
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-left,
+.header-right {
+  flex: 1;
+}
+
+.header-center {
+  flex: 1;
+  justify-content: center;
 }
 
 #live-time {
-    font-size: 1.2em;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
-#time-button {
-    background-color: #ffffff;
-    color: #4CAF50;
-    border: none;
-    border-radius: 5px;
-    padding: 6px 12px;
-    font-size: 0.9em;
-    cursor: pointer;
+.logo {
+  width: 40px;
+  height: 40px;
 }
 
-#time-button:hover {
-    background-color: #e0e0e0;
+.icon-container {
+  display: flex;
+  align-items: center;
 }
 
-/* Main content styling */
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.icon-button img {
+  width: 30px;
+  height: 30px;
+}
+
+.reset-label {
+  font-size: 0.9em;
+  margin-left: 5px;
+}
+
+/* Main Content Styling */
 main {
-    padding-top: 70px; /* Space for fixed header */
-    padding-bottom: 10px; /* Space for bottom content */
+  padding-top: 80px;
+  padding-bottom: 10px;
+  overflow: hidden;
 }
 
-.timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 0 15px;
+.sectors-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 0 15px;
 }
 
-/* Timeslot styles */
-.timeslot {
-    background-color: #ffffff;
-    border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
+/* Sector Styles */
+.sector {
+  background-color: #ffffff;
+  border: 2px solid #cccccc;
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.timeslot-header {
-    font-size: 1em;
-    margin-bottom: 8px;
+.sector-header h2 {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.emoji-placeholders {
-    display: flex;
-    gap: 8px;
+.placeholders {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow-x: auto;
+  gap: 15px;
+}
+
+.placeholder-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .emoji-placeholder {
-    width: 50px;
-    height: 50px;
-    background-color: #f0f0f0;
-    border: 2px dashed #ccc;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5em;
-    cursor: pointer;
-    transition: background-color 0.3s, border-color 0.3s;
-    position: relative;
+  width: 80px;
+  height: 80px;
+  background-color: #f0f0f0;
+  border: 2px dashed #cccccc;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5em;
+  position: relative;
+  transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+  cursor: pointer;
 }
 
 .emoji-placeholder.highlight {
-    background-color: #e0e0e0;
-    border-color: #4CAF50;
+  border-color: #4CAF50;
+  background-color: #e8f5e9;
 }
 
-.note-placeholder {
-    margin-top: 8px;
+.add-placeholder-button {
+  background-color: #ffffff;
+  color: #4CAF50;
+  border: 2px dashed #4CAF50;
+  border-radius: 15px;
+  width: 80px;
+  height: 35px;
+  font-size: 1.5em;
+  cursor: pointer;
+  margin-top: 5px;
+  position: relative;
 }
 
-.note-input {
-    width: 100%;
-    height: 50px;
-    padding: 8px;
-    font-size: 0.9em;
-    border: 2px solid #ccc;
-    border-radius: 6px;
-    resize: none;
-    outline: none;
-    transition: border-color 0.3s;
+.add-placeholder-button::before {
+  content: '+';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.note-input:focus {
-    border-color: #4CAF50;
+.add-placeholder-button:hover {
+  background-color: #e8f5e9;
 }
 
-/* Emoji deck styles */
+/* Huiswerk Button Section */
+.huiswerk-section {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.huiswerk-section p {
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+.huiswerk-button {
+  background-color: #f44336;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.3s;
+}
+
+.huiswerk-button.active {
+  background-color: #4CAF50;
+}
+
+.huiswerk-button:hover {
+  opacity: 0.9;
+}
+
+/* Day Rating System */
+.day-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.day-rating p {
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+.rating-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.rating-button {
+  background-color: #ffffff;
+  border: 2px solid #cccccc;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 1.8em;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.1s, border-color 0.3s, background-color 0.3s;
+}
+
+.rating-button:hover {
+  background-color: #f0f0f0;
+  border-color: #4CAF50;
+  transform: scale(1.05);
+}
+
+.rating-button.selected {
+  background-color: #4CAF50;
+  color: #FFFFFF;
+}
+
+/* Emoji Deck Styles */
 #emoji-deck {
-    background-color: #fff;
-    padding: 10px 15px;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-}
-
-.deck-header {
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.deck-header h2 {
-    font-size: 1.2em;
-    color: #4CAF50;
-}
-
-.deck-tabs {
-    display: flex;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 10px;
-}
-
-.tab-button {
-    flex: 1;
-    padding: 8px;
-    background-color: #f1f1f1;
-    border: none;
-    font-size: 0.9em;
-    cursor: pointer;
-    outline: none;
-    transition: background-color 0.3s;
-}
-
-.tab-button:hover {
-    background-color: #e0e0e0;
-}
-
-.tab-button.active {
-    background-color: #fff;
-    border-bottom: 2px solid #4CAF50;
+  background-color: #ffffff;
+  padding: 10px 0;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 900;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+  height: 280px; /* Adjusted height to match the provided link */
 }
 
 .deck-body {
-    padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Emoji Search Bar */
+.emoji-search-bar {
+  width: 100%;
+  padding: 5px 15px;
+  box-sizing: border-box;
+}
+
+.emoji-search-bar input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #cccccc;
+  border-radius: 10px;
+  font-size: 1em;
+  font-family: 'Quicksand', Arial, sans-serif;
+  color: #000;
+  background-color: #fff;
+}
+
+/* Emoji Grid */
 .emoji-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+  max-height: 200px; /* Adjusted to fit within the deck */
+  overflow-y: auto;
+  padding: 10px 0;
 }
 
 .emoji-item {
-    width: 50px;
-    height: 50px;
-    font-size: 1.5em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: grab;
-    user-select: none;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.1s;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  border: 1px solid #ccc;
 }
 
 .emoji-item:active {
-    cursor: grabbing;
+  transform: scale(1.1);
 }
 
-.hidden {
-    display: none;
-}
-
-/* Draggable clone style */
 .dragging-clone {
-    position: absolute;
-    pointer-events: none;
-    z-index: 3000;
-    transform: translate(-50%, -50%);
+  pointer-events: none;
+  position: absolute;
+  z-index: 1000;
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+/* Navigation Buttons */
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  gap: 20px;
+}
+
+.nav-button {
+  background-color: #ffffff;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.nav-button img {
+  width: 100%;
+  height: auto;
+}
+
+.nav-button:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+
+#category-name {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* Swipe Gesture Styling */
+.emoji-grid.swiping {
+  cursor: grabbing;
 }
 
 /* Responsive Styles */
 @media (max-width: 480px) {
-    /* Adjustments for smaller screens */
-    header {
-        padding: 8px;
-    }
-    #live-time {
-        font-size: 1em;
-    }
-    #time-button {
-        padding: 5px 10px;
-        font-size: 0.8em;
-    }
-    .timeslot {
-        padding: 8px;
-    }
-    .timeslot-header {
-        font-size: 0.9em;
-    }
-    .emoji-placeholder {
-        width: 45px;
-        height: 45px;
-        font-size: 1.3em;
-    }
-    .note-input {
-        height: 45px;
-        font-size: 0.8em;
-    }
-    .deck-header h2 {
-        font-size: 1em;
-    }
-    .tab-button {
-        padding: 6px;
-        font-size: 0.8em;
-    }
-    .emoji-item {
-        width: 45px;
-        height: 45px;
-        font-size: 1.3em;
-    }
+  .emoji-placeholder,
+  .add-placeholder-button,
+  .rating-button {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5em;
+  }
+
+  .emoji-item {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2em;
+  }
+
+  .logo {
+    width: 35px;
+    height: 35px;
+  }
+
+  .icon-button img {
+    width: 25px;
+    height: 25px;
+  }
+
+  #live-time {
+    font-size: 1em;
+  }
+
+  #emoji-deck {
+    height: 250px; /* Adjusted height for smaller screens */
+  }
+
+  .emoji-grid {
+    max-height: 170px;
+  }
+}
+
+/* Cloud Animations */
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.cloud-row {
+  display: flex;
+  justify-content: space-around;
+  animation: cloudRowAnimation 60s linear infinite;
+}
+
+.cloud {
+  width: 100px;
+  height: auto;
+  animation: cloudMove 120s linear infinite;
+}
+
+@keyframes cloudMove {
+  0% { transform: translateX(-100%); }
+ 100% { transform: translateX(100%); }
+}
+
+@keyframes cloudRowAnimation {
+  0% { transform: translateY(0); }
+ 50% { transform: translateY(10px); }
+100% { transform: translateY(0); }
 }
